@@ -1,0 +1,8 @@
+{
+	"company data": [
+	    {"Short Name": "ABC cleaning supplies", "Full Name": "ABC cleaning supplies limited", "Address": "15 W Fake St", "City, State, Zip": "Chicago, IL 66666", "Phone": "111-111-1111", "Contact name": "John Doe", "Contact email": "contact@contact.contact", "Clerk name": "", "Clerk email": ""},
+	    {"Short Name": "John's Hardware", "Full Name": "John's Hardware Co", "Address": "2 N Somewhere Ave", "City, State, Zip": "Miami, FL 99999", "Phone": "123-456-7890", "Contact name": "Jane Doe", "Contact email": "contact@contact.contact", "Clerk name": "", "Clerk email": ""}, 
+	    {"Short Name": "Market Rate Foods", "Full Name": "Market Rate Foods LLC", "Address": "107 Jump Rd", "City, State, Zip": "Pittsburg, PA 33333", "Phone": "987-654-3210", "Contact name": "Jake Doe", "Contact email": "contact@contact.contact", "Clerk name": "", "Clerk email": ""},
+	    {"Short Name": "Penn Logistics", "Full Name": "Penn Logistics Inc.", "Address": "44 Who knows pk", "City, State, Zip": "Dallas, TX 88888", "Phone": "555-555-5555", "Contact name": "Julie Doe", "Contact email": "contact@contact.contact", "Clerk name": "", "Clerk email": ""}
+	]
+}

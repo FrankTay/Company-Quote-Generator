@@ -1,0 +1,52 @@
+QMainWindow {
+    border-image: url('src/images/logo.png') 0 0 0 0 ;
+
+}
+
+QLabel {
+    font-family: Gilroy-Light;
+}
+
+#quoteDirDialogButton,#generateButton {
+    font-family: Gilroy-Bold;
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
+}
+
+#quoteDirDialogButton:pressed,#generateButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+#liDesc1, #liDesc2,#liDesc3,#liDesc4,#liDesc5,#liDesc6 {
+    border: 2px solid gray;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+QLineEdit {
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 0 8px;
+    selection-background-color: darkgray;
+}
+
+
+QComboBox {
+    border-width: 2px;
+    border-style: solid;
+    border-color: gray;
+}
+/*
+#schoolList::drop-down {
+    height: 20px;
+    width: 20px;
+    bottom: -5px;
+    left: -5px;
+}
+
+
+
+*/
