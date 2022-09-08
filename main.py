@@ -691,8 +691,7 @@ class Window(QMainWindow):
         # connect first line item to service description paragraph
         # self.liDesc1.textChanged.connect(self.changeDescriptionParagraph)
 
-        # when generate button is clicked
-
+     # when generate button is clicked
     def genButtonClicked(self):
         self.progressLabel.setText("Processing...")
         self.progressLabel.repaint()
@@ -741,31 +740,6 @@ class Window(QMainWindow):
             self.messageBox(f"Something went wrong. Quote files were not created\n{e}")
             return
 
-        # if dataScrape.wasFileCreated(xlsxFileCreated):
-        # try:
-        #     pdfTempFileCreated = dataScrape.xlsxFileToPDF(xlsxFileCreated)
-        #     # if not xlsxFileCreated:
-        #     #     self.messageBox("ERROR - Script timed out. pdf file not created.")
-        # except Exception as e:
-        #     print("PDF could not be created")
-        #     print(e)
-        #     return
-
-        # Hide pdf watermark
-        # try:
-        #     finalPDF = dataScrape.hideAsposePDFWatermark(pdfTempFileCreated)
-        # except Exception as e:
-        #     print("Watermark could not be hidden")
-        #     print(e)
-        #     return
-
-        # # Delete temp pdf file
-        # try:
-        #     dataScrape.deleteFile(pdfTempFileCreated)
-        # except Exception as e:
-        #     print(f"Could not delete TEMP pdf file\n{e}")
-        #     return
-
         # Job Complete Label
         self.progressLabel.setText(f"{quoteFileName} xlsx and pdf files\ncreated @ \"{userInputs['quotes dir']}\"")
 
@@ -793,6 +767,7 @@ class Window(QMainWindow):
             # (self.liDesc5, self.liQTY5, self.liUP5),
             # (self.liDesc6, self.liQTY6, self.liUP6)
         ]
+
         lineItemText = []
 
         for entry in lineItemInputs:

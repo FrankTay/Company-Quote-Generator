@@ -1,14 +1,10 @@
 import os
 import io
-import pprint
 import time
 import configparser
 import re
 
 import win32com.client as win32
-
-def testImport():
-    print("datasCrape inported")
 
 def getCompanyList(SchooListData):
     companyList = list(map(lambda x: x["Short Name"], SchooListData))
@@ -19,7 +15,6 @@ def getCompanyInfo(Company, CompanyData):
     for row in CompanyData:
         if row["Short Name"] == Company:
             return row
-# pprint.pprint(getCompanyInfo(Company, CompanyData))
 
 def getLineItemPresets(CompanyListData):
     lineItems = [x["Line Item"].strip() for x in CompanyListData["services"]]
@@ -120,117 +115,6 @@ def writeToQuoteTemplate(company_name, guiData):
         ws = None
         wb = None
         excel = None
-
-#write with openpyxl(no pdf output)
-# def writeToQuoteTemplate(guiData):
-#     cwd = os.getcwd()
-#     quotesDirectory = guiData['quotes dir']
-#     quoteTemplatePath = os.path.join(cwd,"src\\quote-template.xlsx")
-#     quoteNumber = guiData['quote number']
-
-#     xlFileName = r"{}\S{} {} Quote - {}.xlsx".format(quotesDirectory, quoteNumber, company_name,
-#                                                         guiData['company data']['Full Name'])
-#     try:
-#         wb = load_workbook(quoteTemplatePath)
-#         ws = wb.active
-#
-#         #### input header info
-#         ws["F3"] = guiData['date']
-#         ws["F5"] = f"Quote #S{quoteNumber}"
-#         ws["D11"] = guiData['company data']['Contact name']
-#         ws["D12"] = guiData['company data']['Full Name']
-#         ws["D13"] = guiData['company data']['Address']
-#         ws["D14"] = guiData['company data']['City, State, Zip']
-#         ws["D15"] = guiData['company data']['Phone']
-#         ws["D16"] = guiData['company data']['Contact email']
-#
-#         for count,i in enumerate(range(20, 26)):
-#             description = guiData['line items'][count]["description"]
-#             quantity = guiData['line items'][count]["quantity"]
-#             unitPrice = guiData['line items'][count]["unit price"]
-#             ws.cell(i, 2).value = description
-#             ws.cell(i, 4).value = float(quantity) if bool(quantity) else None
-#             ws.cell(i, 5).value = float(unitPrice) if bool(unitPrice) else None
-#
-#         #### input discount and tax info
-#         ws["F33"] = float(guiData['discount'])
-#         ws["F35"] = float(guiData['tax']) / 100
-#
-#         wb.save(xlFileName)
-#         wb.close()
-#
-#         # createdBothFiles = wasFileCreated(xlFileName)
-#         return xlFileName
-#
-#     except ValueError as e:
-#         print(f"Error raised with creating xlsx file: {e}")
-#         return None
-
-# def xlsxFileToPDF(xlsxFile):
-#     pdfFileName = xlsxFile.replace(".xlsx", "(TEMP).pdf")
-#
-#     try:
-#         # jvmStarted = jpype.isJVMStarted()
-#         # print(f"is JVM running: {bool(jpype.isJVMStarted)}")
-#         if not jpype.isJVMStarted():
-#             jpype.startJVM()
-#
-#         from asposecells.api import Workbook, FileFormatType, PdfSaveOptions
-#
-#         workbook = Workbook(xlsxFile)
-#         workbook.calculateFormula()
-#         saveOptions = PdfSaveOptions()
-#         saveOptions.setOnePagePerSheet(True)
-#         workbook.save(pdfFileName, saveOptions)
-#
-#         # jpype.shutdownJVM()
-#         # print(f"is JVM running: {bool(jpype.isJVMStarted)}")
-#         return pdfFileName
-#     except Exception as e:
-#         print(f"Error raised with pdf processing: {e}")
-#
-#
-# def hideAsposePDFWatermark(existingPDF):
-#     outputFileName = existingPDF.replace("(TEMP)","")
-#
-#     #start Stream
-#     packet = io.BytesIO()
-#
-#     #create overlay
-#     pdfOverlay = canvas.Canvas(packet,bottomup=0) #pagesize=letter,
-#     pdfOverlay.setLineWidth(11)
-#
-#     #Match Color of header bar in quote template
-#     pdfOverlay.setStrokeColorRGB(179/255, 4/255, 4/255)
-#     y = 100
-#     #draw a line stroke at same coords where watermark is placed
-#     pdfOverlay.line(1,y,578,y)
-#     pdfOverlay.save()
-#
-#     #move to the beginning of the StringIO buffer
-#     packet.seek(0)
-#     new_pdf = PdfFileReader(packet)
-#
-#     # read your existing PDF
-#     existing_pdf_Obj = open(existingPDF, "rb")
-#     existing_pdf = PdfFileReader(existing_pdf_Obj)
-#     output = PdfFileWriter()
-#
-#     # overlay new pdf on the existing pdf page
-#     page = existing_pdf.getPage(0)
-#     page.mergePage(new_pdf.getPage(0))
-#     output.addPage(page)
-#
-#     # finally, write "output" to a final new file
-#     outputStream = open(outputFileName, "wb")
-#     output.write(outputStream)
-#
-#     #close file objects
-#     existing_pdf_Obj.close()
-#     outputStream.close()
-#
-#     return outputFileName
-
 
 
 def hasQuoteNumberBeenUsed(directory,quoteNum):
