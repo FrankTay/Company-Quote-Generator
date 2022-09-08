@@ -200,7 +200,7 @@ def writeToQuoteTemplate(company_name, guiData):
 #     pdfOverlay = canvas.Canvas(packet,bottomup=0) #pagesize=letter,
 #     pdfOverlay.setLineWidth(11)
 #
-#     #Match Color of header bar in Emerje quote template
+#     #Match Color of header bar in quote template
 #     pdfOverlay.setStrokeColorRGB(179/255, 4/255, 4/255)
 #     y = 100
 #     #draw a line stroke at same coords where watermark is placed
